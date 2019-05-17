@@ -5,7 +5,6 @@ player = set()
 computer = set()
 button = []
 c = {0, 1, 2, 3, 4, 5, 6, 7, 8} #заменить!
-active = 1
 def buttons():
     screen_height = root.winfo_screenheight()
     a = screen_height/8
@@ -38,46 +37,33 @@ def buttons():
     button[8].config(command = lambda: click(9))
 
 def click(number): #номер клетки
-    global active
     global player
     global computer
-    if active == 1:
-        process(number)
-        art_intellect()
+    process(number)
+    player.add(number-1)
+    art_intellect()
         
 def process(number):
     if number == 1:
         button[0].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 2:
         button[1].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 3:
         button[2].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 4:
         button[3].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 5:
         button[4].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 6:
         button[5].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 7:
         button[6].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 8:
         button[7].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
     elif number == 9:
         button[8].config(text = "0", bg = '#7B68EE', state = DISABLED)
-        player.add(number)
-
+    
 def art_intellect():
-    '''if (number not in player) and (number not in computer):
-        button[number].config(text = "X", bg = '#FF69B4', state = DISABLED)
-    else:'''
     A = c - player - computer
     print(A)
     b = int(random.choice(list(A)))
