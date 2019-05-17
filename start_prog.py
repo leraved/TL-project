@@ -107,7 +107,7 @@ def rules():
     screen_height = root.winfo_screenheight()
     photo = PhotoImage(file="button_1.png")
     lable1 = Label(text="Правила", font="Arial 30", bg="white", fg="#ff182e").place(x=600, y=50)
-    lable2 = Label(text="Игроки по очереди ставят на свободные клетки поля 3х3 знаки\n (один всегда крестики, другой всегда нолики).\n Первый, выстроивший в ряд 3 своих фигуры по вертикали,\n горизонтали или диагонали, выигрывает. \n Первый ход делает игрок, ставящий крестики.", font="Arial 25", justify=CENTER, bg="white").place(x=700, y=300, anchor="center")
+    lable2 = Label(text="Игрок и компьютер по очереди ставят на свободные клетки поля 3х3 знаки\n (один всегда крестики, другой всегда нолики).\n Первый, выстроивший в ряд 3 своих фигуры по вертикали,\n горизонтали или диагонали, выигрывает. \n Первый ход делает игрок, он ставит крестики.", font="Arial 25", justify=CENTER, bg="white").place(x=700, y=300, anchor="center")
     btn = Button(root, image=photo)
     
     def deletescreen(event):
