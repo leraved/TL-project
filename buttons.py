@@ -1,38 +1,39 @@
 from tkinter import *
 import random
-root = Tk()
+
 player = set()
 computer = set()
 button = []
 c = {0, 1, 2, 3, 4, 5, 6, 7, 8} #заменить!
 def buttons():
+    root = Tk()
     screen_height = root.winfo_screenheight()
     a = screen_height/8
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[0].grid(row = 0, column = 0, sticky = "snew", ipadx = a, ipady = a)
     button[0].config(command = lambda: click(1))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[1].grid(row = 0, column = 1, sticky = "snew", ipadx = a, ipady = a)
     button[1].config(command = lambda: click(2))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[2].grid(row = 0, column = 2, sticky = "snew", ipadx = a, ipady = a)
     button[2].config(command = lambda: click(3))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[3].grid(row = 1, column = 0, sticky = "snew", ipadx = a, ipady = a)
     button[3].config(command = lambda: click(4))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[4].grid(row = 1, column = 1, sticky = "snew", ipadx = a, ipady = a)
     button[4].config(command = lambda: click(5))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[5].grid(row = 1, column = 2, sticky = "snew", ipadx = a, ipady = a)
     button[5].config(command = lambda: click(6))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[6].grid(row = 2, column = 0, sticky = "snew", ipadx = a, ipady = a)
     button[6].config(command = lambda: click(7))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[7].grid(row = 2, column = 1, sticky = "snew", ipadx = a, ipady = a)
     button[7].config(command = lambda: click(8))
-    button.append(Button(root, text = "", bg = 'skyblue', activebackground = 'lightgreen'))
+    button.append(Button(root, text = "", bg = 'skyblue', activebackground = '#FFFF00'))
     button[8].grid(row = 2, column = 2, sticky = "snew", ipadx = a, ipady = a)
     button[8].config(command = lambda: click(9))
 
@@ -45,36 +46,36 @@ def click(number): #номер клетки
         
 def process(number):
     if number == 1:
-        button[0].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[0].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 2:
-        button[1].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[1].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 3:
-        button[2].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[2].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 4:
-        button[3].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[3].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 5:
-        button[4].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[4].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 6:
-        button[5].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[5].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 7:
-        button[6].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[6].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 8:
-        button[7].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[7].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 9:
-        button[8].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        button[8].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     
 def art_intellect():
     A = c - player - computer
     print(A)
     b = int(random.choice(list(A)))
-    button[b].config(text = "X", bg = '#FF69B4', state = DISABLED)
+    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
     computer.add(b)
         
         
         
         
         
-def AutoPlay(): 
+def StartPlay():
     global player 
     global computer 
     EmplyCells = [] 
@@ -84,7 +85,4 @@ def AutoPlay():
             RandomIndex = randint(0, len(EmplyCells)-1) 
             click(EmplyCells[RandomIndex])
 
-buttons()
-AutoPlay()
-root.mainloop()
 
