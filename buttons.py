@@ -43,31 +43,36 @@ def click(number): #номер клетки
     global computer
     if active == 1:
         process(number)
-        player.add(number)
-        active = 2
-    else:
         art_intellect()
-        acive = 1
-
+        
 def process(number):
     if number == 1:
         button[0].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 2:
-        button[1].config(text = "0", bg = '#7B68EE', state = DISABLED)  
+        button[1].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 3:
         button[2].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 4:
-        button[3].config(text = "0", bg = '#7B68EE', state = DISABLED)  
+        button[3].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 5:
         button[4].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 6:
-        button[5].config(text = "0", bg = '#7B68EE', state = DISABLED)  
+        button[5].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 7:
         button[6].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 8:
-        button[7].config(text = "0", bg = '#7B68EE', state = DISABLED)  
+        button[7].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
     elif number == 9:
         button[8].config(text = "0", bg = '#7B68EE', state = DISABLED)
+        player.add(number)
 
 def art_intellect():
     '''if (number not in player) and (number not in computer):
@@ -75,8 +80,9 @@ def art_intellect():
     else:'''
     A = c - player - computer
     print(A)
-    button[int(random.choice(list(A)))].config(text = "X", bg = '#FF69B4', state = DISABLED)
-        
+    b = int(random.choice(list(A)))
+    button[b].config(text = "X", bg = '#FF69B4', state = DISABLED)
+    computer.add(b)
         
         
         
