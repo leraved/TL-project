@@ -113,6 +113,7 @@ def rules():
     def deletescreen(event):
         root.destroy()
         buttons()
+        StartPlay()
         
     btn.bind("<Button-1>", deletescreen)
     btn.pack()
