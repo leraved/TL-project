@@ -1,11 +1,15 @@
 from tkinter import *
 import random
+import math
+import time 
 
 player = set()
 computer = set()
 button = []
-c = {0, 1, 2, 3, 4, 5, 6, 7, 8} #заменить!
-def buttons():
+c = {0, 1, 2, 3, 4, 5, 6, 7, 8} #номера клеток
+def buttons(): 
+    """создание поля с кнопками"""
+    global root
     root = Tk()
     screen_height = root.winfo_screenheight()
     a = screen_height/8
@@ -37,15 +41,18 @@ def buttons():
     button[8].grid(row = 2, column = 2, sticky = "snew", ipadx = a, ipady = a)
     button[8].config(command = lambda: click(9))
 
-def click(number): #номер клетки
+def click(number): 
+    """функция клика; принимается номер клетки"""
     global player
     global computer
-    
     process(number)
-    player.add(number-1)
+    player.add(number - 1)
+    winner()
     art_intellect(number)
+    winner()
         
 def process(number):
+    """ход игрока"""
     if number == 1:
         button[0].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     elif number == 2:
@@ -65,7 +72,13 @@ def process(number):
     elif number == 9:
         button[8].config(text = "X", bg = '#7FFFD4', state = DISABLED)
     
+    
 def art_intellect(number):
+    """ход компьютера: происходит проверка 
+        каждой клетки и стоящих рядом с ней. 
+        Делаем так, чтобы компьютер ставил в клетку, где 
+        игрок бы следующих ходом выиграл, если же такой 
+        клетки нет - ставит рандомно"""
     if number == 1:
         if 1 in player and 2 not in computer and 2 not in player:
             button[2].config(text = "0", bg = '#FF69B4', state = DISABLED)
@@ -272,17 +285,140 @@ def art_intellect(number):
             b = int(random.choice(list(A)))
             button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
             computer.add(b)
+
+def delete_screen(root):
+    root.destroy()   
+     
+def winner(): 
+    """Функция, проверяющая победителя"""
+    if 0 in player and 1 in player and 2 in player:
+        delete_screen(root)
+        win_X()
+    if 0 in player and 3 in player and 6 in player:
+        delete_screen(root)
+        win_X()
+    if 0 in player and 4 in player and 8 in player:
+        delete_screen(root)
+        win_X()
+    if 1 in player and 4 in player and 7 in player:
+        delete_screen(root)
+        win_X()    
+    if 2 in player and 5 in player and 8 in player:
+        delete_screen(root)
+        win_X()
+    if 2 in player and 4 in player and 6 in player:
+        delete_screen(root)
+        win_X()
+    if 3 in player and 4 in player and 5 in player:
+        delete_screen(root)
+        win_X()
+    if 6 in player and 7 in player and 8 in player:
+        delete_screen(root)
+        win_X()
+    
+    if 0 in computer and 1 in computer and 2 in computer:
+        delete_screen(root)
+        win_0()
+    if 0 in computer and 3 in computer and 6 in computer:
+        delete_screen(root)
+        win_0()
+    if 0 in computer and 4 in computer and 8 in computer:
+        delete_screen(root)
+        win_0()
+    if 1 in computer and 4 in computer and 7 in computer:
+        delete_screen(root)
+        win_0()    
+    if 2 in computer and 5 in computer and 8 in computer:
+        delete_screen(root)
+        win_0()
+    if 2 in computer and 4 in computer and 6 in computer:
+        delete_screen(root)
+        win_0()
+    if 3 in computer and 4 in computer and 5 in computer:
+        delete_screen(root)
+        win_0()
+    if 6 in computer and 7 in computer and 8 in computer:
+        delete_screen(root)
+        win_0()
+
+def win_0(): 
+    """Вывод картинки в случае выигрыша 0"""
+    root = Tk()
+    frame = Frame(root)
+    root.overrideredirect(True)
+    root.overrideredirect(False)
+    root.attributes('-fullscreen', True)
+    canva = Canvas(root, bg='black')
+    canva.pack(fill=BOTH, expand=1)
+    photo = PhotoImage(file="win_0.png")
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
+    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
+
+    def deletescreen(event):
+        root.destroy()
+
+    btn.bind("<Button-1>", deletescreen)
+    btn.pack()
+    root.mainloop()
+
+def win_X(): 
+    """Вывод картинки в случае выигрыша X"""
+    root = Tk()
+    frame = Frame(root)
+    root.overrideredirect(True)
+    root.overrideredirect(False)
+    root.attributes('-fullscreen', True)
+    canva = Canvas(root, bg='black')
+    canva.pack(fill=BOTH, expand=1)
+    photo = PhotoImage(file="win_X.png")
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
+    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
+    
+    def deletescreen(event):
+        new_game()
         
+
+    btn.bind("<Button-1>", deletescreen)
+    btn.pack()
+    root.mainloop()
+    
+def drawn(): 
+    """Вывод картинки в случае ничьей"""
+    root = Tk()
+    frame = Frame(root)
+    root.overrideredirect(True)
+    root.overrideredirect(False)
+    root.attributes('-fullscreen', True)
+    canva = Canvas(root, bg='black')
+    canva.pack(fill=BOTH, expand=1)
+    photo = PhotoImage(file="drawn.png")
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
+    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
+
+    def deletescreen(event):
+        root.destroy()
+
+    btn.bind("<Button-1>", deletescreen)
+    btn.pack()
+    root.mainloop()
         
-        
-def StartPlay():
+def StartPlay(): 
+    """Инициализация начала игры"""
     global player 
     global computer 
-    EmplyCells = [] 
+    EmptyCells = [] 
     for i in range(9): 
         if ( (i+1 in player) or (i+1 in computer)): 
-            EmplyCells.append(i+1) 
-            RandomIndex = randint(0, len(EmplyCells)-1) 
-            click(EmplyCells[RandomIndex])
+            EmptyCells.append(i+1) 
+            RandomIndex = randint(0, len(EmptyCells)-1) 
+            click(EmptyCells[RandomIndex])
 
-
+def new_game():
+    buttons()
+    StartPlay()

@@ -10,6 +10,7 @@ import time
 import random
 from tkinter import *
 from buttons import *
+
 def start():
     root = Tk()
     frame = Frame(root)
@@ -32,70 +33,9 @@ def start():
     btn.pack()
     root.mainloop()
 
-def finish1():
-    root = Tk()
-    frame = Frame(root)
-    root.overrideredirect(True)
-    root.overrideredirect(False)
-    root.attributes('-fullscreen', True)
-    canva = Canvas(root, bg='black')
-    canva.pack(fill=BOTH, expand=1)
-    photo = PhotoImage(file="win_0.png")
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
-    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
-
-    def deletescreen(event):
-        root.destroy()
-
-    btn.bind("<Button-1>", deletescreen)
-    btn.pack()
-    root.mainloop()
-
-def finish2():
-    root = Tk()
-    frame = Frame(root)
-    root.overrideredirect(True)
-    root.overrideredirect(False)
-    root.attributes('-fullscreen', True)
-    canva = Canvas(root, bg='black')
-    canva.pack(fill=BOTH, expand=1)
-    photo = PhotoImage(file="win_x.png")
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
-    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
-
-    def deletescreen(event):
-        root.destroy()
-
-    btn.bind("<Button-1>", deletescreen)
-    btn.pack()
-    root.mainloop()
-
-def finish3():
-    root = Tk()
-    frame = Frame(root)
-    root.overrideredirect(True)
-    root.overrideredirect(False)
-    root.attributes('-fullscreen', True)
-    canva = Canvas(root, bg='black')
-    canva.pack(fill=BOTH, expand=1)
-    photo = PhotoImage(file="drawn.png")
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
-    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
-
-    def deletescreen(event):
-        root.destroy()
-
-    btn.bind("<Button-1>", deletescreen)
-    btn.pack()
-    root.mainloop()
     
 def rules():
+    """Окно с правилами игры"""
     root = Tk()
     frame = Frame(root)
     root.overrideredirect(True)
@@ -119,4 +59,4 @@ def rules():
     btn.pack()
     root.mainloop()
 
-start()
+start() 
