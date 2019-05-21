@@ -341,6 +341,50 @@ def winner():
         delete_screen(root)
         win_0()
 
+
+    if 0 in player and 1 in player and 4 in player and 5 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 1 in player and 2 in player and 3 in player and 4 in player and 8 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 3 in player and 4 in player and 5 in player and 7 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 2 in player and 4 in player and 5 in player and 7 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 2 in player and 3 in player and 5 in player and 7 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 2 in player and 7 in player and 5 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 2 in player and 3 in player and 7 in player and 8 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 1 in player and 8 in player and 5 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 1 in player and 2 in player and 3 in player and 8 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 1 in player and 3 in player and 8 in player and 5 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 1 in player and 3 in player and 4 in player and 8 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 1 in player and 8 in player and 4 in player and 5 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 0 in player and 7 in player and 4 in player and 5 in player and 6 in player:
+        delete_screen(root)
+        drawn()
+    if 2 in player and 3 in player and 4 in player and 7 in player and 8 in player:
+        delete_screen(root)
+        drawn()
+
 def win_0(): 
     """Вывод картинки в случае выигрыша 0"""
     root = Tk()
