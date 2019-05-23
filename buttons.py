@@ -3,6 +3,7 @@ import random
 import math
 import time 
 
+
 player = set()
 computer = set()
 button = []
@@ -74,6 +75,9 @@ def process(number):
     
 
 def art_think():
+    """Функция, заставляющая компьютер думать. Если у компьютера есть возможность 
+    ставить в клетку, лежащую в окрестности двух Х, 
+    либо поставить куда-то, что привело бы сразу же к выйгрышному ходу, он использует второй вариант."""
     global f
     f = 0
     if 0 in computer and 1 in computer and 2 not in player:
@@ -213,7 +217,6 @@ def art_intellect(number):
         игрок бы следующих ходом выиграл, если же такой 
         клетки нет - ставит рандомно"""
     art_think()
-    print(f)
     if f == 0:
         if number == 1:
             if 1 in player and 2 not in computer and 2 not in player:
@@ -236,9 +239,12 @@ def art_intellect(number):
                 computer.add(3)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
                 
         if number == 2:
             if 0 in player and 2 not in computer and 2 not in player:
@@ -255,9 +261,12 @@ def art_intellect(number):
                 computer.add(4)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
         if number == 3:
             if 0 in player and 1 not in computer and 1 not in player:
@@ -280,9 +289,12 @@ def art_intellect(number):
                 computer.add(4)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
         if number == 4:
             if 0 in player and 6 not in computer and 6 not in player:
@@ -299,9 +311,12 @@ def art_intellect(number):
                 computer.add(4)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
         if number == 5:
             if 1 in player and 7 not in computer and 7 not in player:
@@ -330,9 +345,12 @@ def art_intellect(number):
                 computer.add(2)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
         if number == 6:
             if 2 in player and 8 not in computer and 8 not in player:
@@ -349,9 +367,12 @@ def art_intellect(number):
                 computer.add(3)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
         if number == 7:
             if 7 in player and 8 not in computer and 8 not in player:
@@ -374,10 +395,13 @@ def art_intellect(number):
                 computer.add(4)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
-
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
+                
         if number == 8:
             if 6 in player and 8 not in computer and 8 not in player:
                 button[8].config(text = "0", bg = '#FF69B4', state = DISABLED)
@@ -393,9 +417,12 @@ def art_intellect(number):
                 computer.add(1)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
         if number == 9:
             if 7 in player and 6 not in computer and 6 not in player:
@@ -418,9 +445,12 @@ def art_intellect(number):
                 computer.add(4)
             else:
                 A = c - player - computer
-                b = int(random.choice(list(A)))
-                button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
-                computer.add(b)
+                if len(A) != 0:
+                    b = int(random.choice(list(A)))
+                    button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
+                    computer.add(b)
+                else:
+                    pass
 
 def delete_screen(root):
     root.destroy()   
@@ -464,7 +494,7 @@ def winner():
         win_0()
     if 1 in computer and 4 in computer and 7 in computer:
         delete_screen(root)
-        win_0()    
+        win_0()  
     if 2 in computer and 5 in computer and 8 in computer:
         delete_screen(root)
         win_0()
@@ -601,6 +631,6 @@ def StartPlay():
             RandomIndex = randint(0, len(EmptyCells)-1) 
             click(EmptyCells[RandomIndex])
 
-def new_game(event):
+def new_game():
     buttons()
     StartPlay()
