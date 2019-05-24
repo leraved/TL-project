@@ -2,7 +2,7 @@ from tkinter import *
 import random
 import math
 import time 
-
+import sys
 
 player = set()
 computer = set()
@@ -244,7 +244,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
                 
         if number == 2:
             if 0 in player and 2 not in computer and 2 not in player:
@@ -266,7 +266,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
 
         if number == 3:
             if 0 in player and 1 not in computer and 1 not in player:
@@ -294,7 +294,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
 
         if number == 4:
             if 0 in player and 6 not in computer and 6 not in player:
@@ -316,7 +316,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit()
 
         if number == 5:
             if 1 in player and 7 not in computer and 7 not in player:
@@ -350,7 +350,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
 
         if number == 6:
             if 2 in player and 8 not in computer and 8 not in player:
@@ -372,7 +372,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit()
 
         if number == 7:
             if 7 in player and 8 not in computer and 8 not in player:
@@ -400,7 +400,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
                 
         if number == 8:
             if 6 in player and 8 not in computer and 8 not in player:
@@ -422,7 +422,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
 
         if number == 9:
             if 7 in player and 6 not in computer and 6 not in player:
@@ -450,7 +450,7 @@ def art_intellect(number):
                     button[b].config(text = "0", bg = '#FF69B4', state = DISABLED)
                     computer.add(b)
                 else:
-                    pass
+                    sys.exit(0)
 
 def delete_screen(root):
     root.destroy()   
@@ -565,7 +565,7 @@ def win_0():
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
-    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
+    btn = Button(root, text="Game over", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
 
     def deletescreen(event):
         root.destroy()
@@ -587,11 +587,10 @@ def win_X():
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
-    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
+    btn = Button(root, text="Game over", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
     
     def deletescreen(event):
         root.destroy()
-        new_game()
         
 
     btn.bind("<Button-1>", deletescreen)
@@ -611,7 +610,7 @@ def drawn():
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     Label(root, image=photo).place(x=screen_width/2, y=screen_height/2, anchor="center")
-    btn = Button(root, text="Again", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
+    btn = Button(root, text="Game over", width=10, height=2, bg="#18ff95", fg="#ff182e", font="Arial 17")
 
     def deletescreen(event):
         root.destroy()
@@ -631,6 +630,3 @@ def StartPlay():
             RandomIndex = randint(0, len(EmptyCells)-1) 
             click(EmptyCells[RandomIndex])
 
-def new_game():
-    buttons()
-    StartPlay()
